@@ -18,6 +18,8 @@ import androidx.camera.view.PreviewView
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -74,6 +76,7 @@ fun CameraPreview(
 
     // Grayscale image from ViewModel state
     val grayscaleBitmap by viewModel.grayscaleBitmap
+    val originalBitmap by viewModel.originalBitmap
 
     // Bind camera when preview is ready
     LaunchedEffect(previewView) {
@@ -93,16 +96,34 @@ fun CameraPreview(
 
     Column(modifier = modifier.fillMaxSize()) {
 
-        // Display the final grayscale bitmap (converted and ready)
-        grayscaleBitmap?.let { bitmap ->
-            Image(
-                bitmap = bitmap.asImageBitmap(),
-                contentDescription = "Grayscale Image",
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(200.dp)
-                    .background(Color.Black)
-            )
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(200.dp)
+                .background(Color.Black)
+        ) {
+
+            // Display the original color bitmap
+            originalBitmap?.let { bitmap ->
+                Image(
+                    bitmap = bitmap.asImageBitmap(),
+                    contentDescription = "Original Image",
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxHeight()
+                )
+            }
+
+            // Display the final grayscale bitmap (converted and ready)
+            grayscaleBitmap?.let { bitmap ->
+                Image(
+                    bitmap = bitmap.asImageBitmap(),
+                    contentDescription = "Grayscale Image",
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxHeight()
+                )
+            }
         }
 
         // Live camera preview

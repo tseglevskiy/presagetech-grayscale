@@ -16,7 +16,9 @@ import kotlin.system.measureTimeMillis
 class ImageViewModel : ViewModel() {
     // The latest grayscale bitmap to be shown in the UI
     private val _grayscaleBitmap = mutableStateOf<Bitmap?>(null)
+    private val _originalBitmap = mutableStateOf<Bitmap?>(null)
     val grayscaleBitmap: State<Bitmap?> = _grayscaleBitmap
+    val originalBitmap: State<Bitmap?> = _originalBitmap
 
     // Internal buffer to hold the most recent captured bitmap
     private var latestBitmap: Bitmap? = null
@@ -34,6 +36,7 @@ class ImageViewModel : ViewModel() {
     fun onCapturedBitmap(newBitmap: Bitmap) {
         viewModelScope.launch {
             mutex.withLock {
+                _originalBitmap.value = newBitmap
                 latestBitmap = newBitmap
             }
             processNext()
