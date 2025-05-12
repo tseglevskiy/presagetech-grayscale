@@ -20,13 +20,6 @@ android {
             }
         }
 
-//        ndk { // TODO
-//            abiFilters += "arm64-v8a"
-//            abiFilters += "armeabi-v7a"
-//            abiFilters += "x86_64"
-//            abiFilters += "x86"
-//        }
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
     }
@@ -50,13 +43,11 @@ android {
     externalNativeBuild {
         cmake {
             path = file("CMakeLists.txt")
-//            version = "3.22.1"
         }
     }
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
 }

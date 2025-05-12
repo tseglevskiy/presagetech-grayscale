@@ -37,18 +37,7 @@ android {
 
 dependencies {
     implementation(project(":imageutilsdk"))
-
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
     implementation(libs.material)
     androidTestImplementation(kotlin("test"))
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-//    androidTestImplementation(libs.androidx.ui.test.junit4)
-    androidTestImplementation("org.jetbrains.kotlin:kotlin-test")
-
-
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.8.1")
-
-
+    androidTestImplementation(libs.ui.test.junit4)
 }
