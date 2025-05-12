@@ -1,0 +1,53 @@
+# CMake build directories
+/build/
+/build-*/
+*/CMakeFiles/
+*/CMakeCache.txt
+*/cmake_install.cmake
+*/Makefile
+*/CTestTestfile.cmake
+*/Testing/
+
+# Ninja files
+*.ninja
+.ninja_log
+.ninja_deps
+
+# Visual Studio Code and CLion
+.vscode/
+.idea/
+
+# Compiled object files
+*.o
+*.obj
+*.lo
+*.a
+*.lib
+*.so
+*.so.*
+*.dll
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Test logs
+Testing/
+test_output/
+*.log
+*.test
+
+# Backup and temp files
+*~
+*.swp
+*.tmp
+
+# Generated documentation
+/docs/html/
+/docs/latex/
+
+# Optional: ignore third-party build folders
+_deps/
+
