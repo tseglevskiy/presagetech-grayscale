@@ -21,5 +21,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "ImageUtilDemo"
 include(":app")
-
 includeBuild("../android-imageutil-sdk")
+
+ 
